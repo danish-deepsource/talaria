@@ -22,7 +22,7 @@ type S3Uploader interface {
 // S3Writer uploads objects to S3
 type S3Writer struct {
 	uploader S3Uploader
-	bucket string
+	bucket   string
 }
 
 // NewS3Writer initializes an S3Writer
@@ -38,7 +38,7 @@ func NewS3Writer(region, bucket string, concurrency int) (*S3Writer, error) {
 
 	w := &S3Writer{
 		uploader: s3manager.NewUploader(sess, func(u *s3manager.Uploader) { u.Concurrency = concurrency }),
-		bucket: bucket,
+		bucket:   bucket,
 	}
 
 	return w, nil
@@ -48,9 +48,8 @@ func NewS3Writer(region, bucket string, concurrency int) (*S3Writer, error) {
 func (w *S3Writer) Write(key key.Key, val []byte) error {
 	uploadInput := &s3manager.UploadInput{
 		Bucket: aws.String(w.bucket),
-		Body: bytes.NewBuffer(val),
-		Key: aws.String(string(key)),
-
+		Body:   bytes.NewBuffer(val),
+		Key:    aws.String(string(key)),
 	}
 	_, err := w.uploader.Upload(uploadInput)
 	return err

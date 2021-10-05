@@ -463,7 +463,7 @@ func (b *PrestoThriftVarchar) Range(from int, until int, f func(int, interface{}
 			continue
 		}
 
-		v := b.Bytes[offset:offset+size]
+		v := b.Bytes[offset : offset+size]
 		f(i, binaryToString(&v))
 		offset += size
 	}
@@ -805,7 +805,7 @@ func (b *PrestoThriftJson) Range(from int, until int, f func(int, interface{})) 
 			continue
 		}
 
-		v := b.Bytes[offset:offset+size]
+		v := b.Bytes[offset : offset+size]
 		f(i, binaryToString(&v))
 		offset += size
 	}
@@ -815,4 +815,3 @@ func (b *PrestoThriftJson) Range(from int, until int, f func(int, interface{})) 
 func binaryToString(b *[]byte) string {
 	return *(*string)(unsafe.Pointer(b))
 }
-
