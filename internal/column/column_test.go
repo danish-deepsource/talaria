@@ -61,11 +61,11 @@ func TestMakeColumns(t *testing.T) {
 		output Columns
 	}{
 		{
-			input:  &typeof.Schema{
-				"a":    typeof.Int64,
-				"b":    typeof.Timestamp,
+			input: &typeof.Schema{
+				"a": typeof.Int64,
+				"b": typeof.Timestamp,
 			},
-			output: Columns {
+			output: Columns{
 				"a": NewColumn(typeof.Int64),
 				"b": NewColumn(typeof.Timestamp),
 			},

@@ -73,10 +73,10 @@ func TestBlock_FromBatch(t *testing.T) {
 
 	// The schema to filter
 	filter := typeof.Schema{
-		"a":    typeof.Int64,
-		"b":    typeof.Timestamp,
-		"d":    typeof.String,
-		"data": typeof.JSON,
+		"a":       typeof.Int64,
+		"b":       typeof.Timestamp,
+		"d":       typeof.String,
+		"data":    typeof.JSON,
 		"another": typeof.Int64,
 	}
 

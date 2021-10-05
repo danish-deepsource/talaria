@@ -22,7 +22,7 @@ func TestS3Writer_Write(t *testing.T) {
 
 	s3Writer := &S3Writer{
 		uploader: mockUploader,
-		bucket: "testBucket",
+		bucket:   "testBucket",
 	}
 
 	val := []byte("Test Upload Data")
